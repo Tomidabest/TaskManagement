@@ -3,13 +3,10 @@ version: '3.8'
 services:
   db:
     image: mysql:latest
-    environment:
-      MYSQL_DATABASE: 'taskmanagementdb'    
-      MYSQL_ROOT_PASSWORD: '123Tommy'
     ports:
-      - '3307:3306'
+      - 8083:3306
     volumes:
-      - db_data:/var/lib/mysql
-
-volumes:
-  db_data:
+      - ./db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: wp
+      MYSQL_DATABASE: taskmanagementdb
